@@ -13,12 +13,16 @@ public class PersonJdbcDao {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
-    //The DAO method that will fetch data from PERSON table in the database
+    //The DAO method that will fetch a list of persons from PERSON table in the database
     public List<Person> findAll(){
-        return
-                jdbcTemplate.query(
+        return jdbcTemplate.query(
                         "select * from Person",
-                        new BeanPropertyRowMapper<Person>(Person.class)
-                );
+                        new BeanPropertyRowMapper<Person>(Person.class));
+    }
+
+    //Fetch an individual person given an id
+    public Person findById(int id){
+        return jdbcTemplate.queryForObject("select * from person where id = ?", new Object[]{id},
+        new BeanPropertyRowMapper<Person>(Person.class));
     }
 }
