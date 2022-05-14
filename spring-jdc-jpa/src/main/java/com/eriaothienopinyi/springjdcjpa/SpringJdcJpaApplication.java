@@ -21,7 +21,9 @@ public class  SpringJdcJpaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		logger.info("All persons -> {}",dao.findAll());
-		logger.info("Person with id 10001 -> {}", dao.findById(10001));
+		logger.info("\nAll persons: {}", dao.findAll());
+		logger.info("\nPerson with id 10001: {}", dao.findById(10001));
+		logger.info("\nDeleting 10002: \nRows deleted: {}", dao.deleteById(10002));
+		logger.info("\nAvailable After Deleting: {}", dao.findAll());
 	}
 }
