@@ -32,7 +32,7 @@ public class PersonJdbcDao {
             return person;
         }
     }
-
+    //Use a custom RowMapper
     public List<Person> findAll(){
         return jdbcTemplate.query(
                         "select * from Person",

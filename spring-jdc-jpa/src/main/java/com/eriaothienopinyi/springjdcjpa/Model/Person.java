@@ -1,8 +1,17 @@
 package com.eriaothienopinyi.springjdcjpa.Model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import java.time.LocalDateTime;
 
+@Entity
+@NamedQuery(name = "findAllPersons", query="select p from Person p")
 public class Person {
+
+    @Id
+    @GeneratedValue
     private int id;
     private String name;
     private String location;
